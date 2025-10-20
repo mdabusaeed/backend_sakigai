@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from decimal import Decimal
-from product.models import Category, Product, Review
+from product.models import Category, Product, Review, ProductImage
+# from django.contrib.auth import get_user_model
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -9,6 +10,11 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'product_count']
 
     product_count = serializers.IntegerField(read_only=True)
+
+class ProductImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductImage
+        fields = ['id', 'image']
 
 
 class ProductSerializer(serializers.ModelSerializer):
