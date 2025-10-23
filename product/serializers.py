@@ -57,7 +57,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
-        fields = ['id', 'user', 'product', 'ratings', 'comment']
+        fields = ['id', 'user', 'product', 'name', 'description']
         read_only_fields = ['user', 'product']
 
     def get_user(self, obj):
